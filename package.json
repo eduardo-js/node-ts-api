@@ -6,12 +6,20 @@
 	"scripts": {
 		"dev": "ts-node-dev --respawn src",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"lint:fix": "eslint --fix src/**/*"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.2",
 		"@commitlint/config-conventional": "^17.0.2",
+		"@typescript-eslint/eslint-plugin": "^5.28.0",
+		"@typescript-eslint/parser": "^5.28.0",
+		"eslint": "^7.32.0 || ^8.2.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.25.2",
 		"husky": "^8.0.1",
+		"prettier": "^2.7.0",
 		"ts-node-dev": "^2.0.0",
 		"typescript": "^4.7.3"
 	},
