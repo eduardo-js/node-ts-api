@@ -1,13 +1,12 @@
+import 'reflect-metadata';
 import 'dotenv/config';
-import express from 'express';
+import App from './app';
+import container from './shared/container';
+import config from './config';
 
-const app = express()
-
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
-
-app.listen(process.env.PORT)
-
-
-
+try {
+  container.resolve(App).app.listen(config.app.port || 3000);
+  console.log(`Server is running on port ${config.app.port || 3000}`);
+} catch (error) {
+  console.info(error);
+}
