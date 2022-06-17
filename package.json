@@ -7,7 +7,7 @@
     "dev": "ts-node-dev --respawn --exit-child src",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "lint:fix": " eslint . --ext ts --fix"
+    "lint:fix": "prettier --write ./src && eslint . --ext ts --fix"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
