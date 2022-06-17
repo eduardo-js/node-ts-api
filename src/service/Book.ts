@@ -1,5 +1,18 @@
+import {inject, injectable} from 'tsyringe';
+import {ResourceNotFound} from '../error/Http';
+import BookRepository from '../repository/Book';
+import ApiResponse from '../shared/responses';
+
+@injectable()
 export default class BookService {
-  async getBookById(id: string): Promise<Record<string, any>> {
-    return {book: `book${id}`};
+  constructor(
+    @inject('BookRepository') private bookRepository: BookRepository,
+  ) {}
+  async getBookById(id: number) {
+    const book = await this.bookRepository.getBookById(id);
+    if (!book) {
+      return ApiResponse(ResourceNotFound.status, ResourceNotFound.data);
+    }
+    return ApiResponse(200, {book});
   }
 }

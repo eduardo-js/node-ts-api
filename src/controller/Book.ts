@@ -4,10 +4,11 @@ import BookService from '../service/Book';
 
 @injectable()
 export default class BookController {
-  constructor(@inject('BookService') private BookService: BookService) {}
-
+  constructor(@inject('BookService') private bookService: BookService) {}
   getBookById = async (req: Request, res: Response) => {
-    const data = await this.BookService.getBookById(req.params.id as string);
-    res.send(data);
+    const response = await this.bookService.getBookById(
+        parseInt(req.params.id),
+    );
+    res.status(response.status).send(response.data);
   };
 }
