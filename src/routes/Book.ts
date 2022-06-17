@@ -12,6 +12,6 @@ export default class BookRoutes {
   }
 
   init() {
-    this.router.get('/:id', this.bookController.getBookById);
+    this.router.get('/v1/:id', this.bookController.getBookById);
   }
 }

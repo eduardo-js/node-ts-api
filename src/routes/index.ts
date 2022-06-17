@@ -8,6 +8,6 @@ export default class Routes {
     @inject('router') public router: Router,
     @inject('BookRoutes') private bookRoutes: BookRoutes,
   ) {
-    this.router.use('/v1/book', this.bookRoutes.router);
+    this.router.use('/book', this.bookRoutes.router);
   }
 }
