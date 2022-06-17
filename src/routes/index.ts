@@ -1,10 +1,13 @@
 import {Router} from 'express';
-import {container, inject, injectable} from 'tsyringe';
-import V1 from './v1/index';
+import {inject, injectable} from 'tsyringe';
+import BookRoutes from './Book';
 
 @injectable()
 export default class Routes {
-  constructor(@inject('router') public router: Router) {
-    this.router.use('/v1', container.resolve(V1).router);
+  constructor(
+    @inject('router') public router: Router,
+    @inject('BookRoutes') private bookRoutes: BookRoutes,
+  ) {
+    this.router.use('/v1/book', this.bookRoutes.router);
   }
 }

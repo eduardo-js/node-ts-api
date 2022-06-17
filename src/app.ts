@@ -1,5 +1,5 @@
-import express, {Application} from 'express';
-import {inject, injectable} from 'tsyringe';
+import express, { Application } from 'express';
+import { inject, injectable } from 'tsyringe';
 import Routes from './routes/index';
 
 @injectable()
@@ -11,8 +11,8 @@ export default class App {
     this.init();
   }
 
-  init() {
+  init = () => {
     this.app.use(express.json());
     this.app.use('/api', this.routes.router);
-  }
+  };
 }

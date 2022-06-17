@@ -2,8 +2,9 @@ import {container} from 'tsyringe';
 import express, {Application, Router} from 'express';
 import App from '../../app';
 import Routes from '../../routes';
-import V1 from '../../routes/v1';
-import Book from '../../routes/v1/Book';
+import BookRoutes from '../../routes/Book';
+import BookService from '../../service/Book';
+import BookController from '../../controller/Book';
 
 container.register<Application>('app', {
   useValue: express(),
@@ -19,12 +20,15 @@ container.register<App>('App', {
   useClass: App,
 });
 
-container.register<V1>('V1', {
-  useClass: V1,
+container.register<BookRoutes>('BookRoutes', {
+  useClass: BookRoutes,
 });
 
-container.register<Book>('Book', {
-  useClass: Book,
+container.register<BookController>('BookController', {
+  useClass: BookController,
+});
+container.register<BookService>('BookService', {
+  useClass: BookService,
 });
 
 export default container;
