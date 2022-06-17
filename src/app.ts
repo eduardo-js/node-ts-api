@@ -1,5 +1,5 @@
-import express, { Application } from 'express';
-import { inject, injectable } from 'tsyringe';
+import express, {Application} from 'express';
+import {inject, injectable} from 'tsyringe';
 import Routes from './routes/index';
 
 @injectable()
