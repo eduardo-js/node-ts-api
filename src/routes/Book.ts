@@ -1,6 +1,8 @@
 import {Router} from 'express';
 import {inject, injectable} from 'tsyringe';
 import BookController from '../controller/Book';
+import {Validate} from '../middleware/Validator';
+import {getBookByIdParam} from '../shared/validators/Book';
 
 @injectable()
 export default class BookRoutes {
@@ -12,6 +14,10 @@ export default class BookRoutes {
   }
 
   init() {
-    this.router.get('/v1/:id', this.bookController.getBookById);
+    this.router.get(
+        '/v1/:id',
+        Validate(getBookByIdParam),
+        this.bookController.getBookById,
+    );
   }
 }
