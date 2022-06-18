@@ -9,6 +9,6 @@ export default class BookController {
     const response = await this.bookService.getBookById(
         parseInt(req.params.id),
     );
-    res.status(response.status).send(response.data);
+    return res.status(response.status).send(response.data);
   };
 }

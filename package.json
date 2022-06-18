@@ -5,28 +5,33 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --exit-child src",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prepare": "husky install",
-    "lint:fix": "prettier --write ./src && eslint . --ext ts --fix",
+    "lint:fix": "prettier --write ./src && prettier --write ./test && eslint . --ext ts --fix",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
-    "@commitlint/config-conventional": "^17.0.2",
-    "@types/express": "^4.17.13",
-    "@types/node": "^17.0.43",
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
+    "@commitlint/cli": "17.0.2",
+    "@commitlint/config-conventional": "17.0.2",
+    "@types/express": "4.17.13",
+    "@types/jest": "27.4.1",
+    "@types/node": "17.0.43",
+    "@types/supertest": "2.0.12",
+    "@typescript-eslint/eslint-plugin": "5.28.0",
+    "@typescript-eslint/parser": "5.28.0",
     "eslint": ">=5.16.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.25.2",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.2",
-    "prettier": "^2.7.0",
-    "prisma": "^3.15.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.3"
+    "eslint-config-google": "0.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.25.2",
+    "husky": "8.0.1",
+    "jest": "27.5.1",
+    "lint-staged": "13.0.2",
+    "prettier": "2.7.0",
+    "prisma": "3.15.2",
+    "ts-jest": "27.1.5",
+    "ts-node-dev": "2.0.0",
+    "typescript": "4.7.3",
+    "supertest": "6.2.3"
   },
   "repository": {
     "type": "git",
@@ -39,10 +44,10 @@
   },
   "homepage": "https://github.com/eduardo-js/node-ts-api#readme",
   "dependencies": {
-    "@prisma/client": "^3.15.2",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "reflect-metadata": "^0.1.13",
-    "tsyringe": "^4.7.0"
+    "@prisma/client": "3.15.2",
+    "dotenv": "16.0.1",
+    "express": "4.18.1",
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.7.0"
   }
 }
