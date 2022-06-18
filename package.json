@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --exit-child src",
-    "test": "jest",
+    "test": "jest -w 1 ",
     "prepare": "husky install",
     "lint:fix": "prettier --write ./src && prettier --write ./test && eslint . --ext ts --fix",
     "lint-staged": "lint-staged"
