@@ -6,3 +6,8 @@ export const ResourceNotFound = {
 export const ValidationError = {
   status: 400,
 };
+
+export const UnhandledException = {
+  status: 503,
+  data: {reason: 'Unhandled exception'},
+};

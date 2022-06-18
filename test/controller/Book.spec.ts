@@ -1,5 +1,9 @@
 import request from 'supertest';
-import {ResourceNotFound, ValidationError} from '../../src/error/Http';
+import {
+  ResourceNotFound,
+  UnhandledException,
+  ValidationError,
+} from '../../src/error/Http';
 import BookService from '../../src/service/Book';
 import {bookMock} from '../mock/Book.mock';
 import container from '../../src/shared/container';
@@ -34,6 +38,12 @@ describe('BookController', () => {
       const sut = await request(app).get('/api/book/v1/-1');
       expect(sut.status).toBe(ValidationError.status);
       expect(sut.body).toHaveProperty('name', 'ZodError');
+    });
+    it('should return 503 when route throw', async () => {
+      bookService.getBookById.mockRejectedValue(new Error());
+      const sut = await request(app).get('/api/book/v1/1');
+      expect(sut.status).toBe(UnhandledException.status);
+      expect(sut.body).toStrictEqual(UnhandledException.data);
     });
   });
 });

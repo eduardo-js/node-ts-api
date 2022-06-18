@@ -1,7 +1,8 @@
 import express, {Application} from 'express';
 import {inject, injectable} from 'tsyringe';
+import {ErrorHandler} from './middleware/ErrorHandler';
 import Routes from './routes/index';
-
+import 'express-async-errors';
 @injectable()
 export default class App {
   constructor(
@@ -14,5 +15,6 @@ export default class App {
   init = () => {
     this.app.use(express.json());
     this.app.use('/api', this.routes.router);
+    this.app.use(ErrorHandler);
   };
 }
