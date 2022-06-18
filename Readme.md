@@ -4,7 +4,7 @@
 ## Setup
 
 
-### Clone de project and install dependencies
+### Clone the project and install dependencies
 
 ```bash
 git clone https://github.com/eduardo-js/node-ts-api.git
