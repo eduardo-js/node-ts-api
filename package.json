@@ -11,7 +11,7 @@
     "lint-staged": "lint-staged",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "test:e2e": "pnpm docker:up && pnpm prisma migrate reset --force && pnpm prisma migrate deploy && jest -i --config jest.e2e-config.ts --silent && docker-compose down"
+    "test:e2e": "pnpm docker:up && dotenv -e .test.env -- pnpm prisma migrate reset --force && dotenv -e .test.env -- pnpm prisma migrate deploy && jest -i --config jest.e2e-config.ts --silent && docker-compose down"
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.2",
@@ -22,6 +22,7 @@
     "@types/supertest": "2.0.12",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
+    "dotenv-cli": "^5.1.0",
     "eslint": ">=5.16.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "8.5.0",
