@@ -22,5 +22,11 @@ describe('BookService', () => {
       expect(sut.status).toBe(ResourceNotFound.status);
       expect(sut.data).toStrictEqual(ResourceNotFound.data);
     });
+    it('should return 400 when book id <= 0 ', async () => {
+      bookRepository.getBookById.mockResolvedValueOnce(null);
+      const sut = await new BookService(bookRepository).getBookById(0);
+      expect(sut.status).toBe(ResourceNotFound.status);
+      expect(sut.data).toStrictEqual(ResourceNotFound.data);
+    });
   });
 });

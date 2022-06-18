@@ -1,5 +1,6 @@
 import {NextFunction, Request, Response} from 'express';
 import {AnyZodObject} from 'zod';
+import {ValidationError} from '../error/Http';
 
 export const Validate =
   (schema: AnyZodObject) =>
@@ -12,6 +13,6 @@ export const Validate =
         });
         return next();
       } catch (error) {
-        return res.status(400).json(error);
+        return res.status(ValidationError.status).json(error);
       }
     };
