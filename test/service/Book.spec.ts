@@ -19,7 +19,6 @@ describe('BookService', () => {
     it('should return 404 when book !exists', async () => {
       bookRepository.getBookById.mockResolvedValueOnce(null);
       const sut = await new BookService(bookRepository).getBookById(1);
-      console.log(sut);
       expect(sut.status).toBe(ResourceNotFound.status);
       expect(sut.data).toStrictEqual(ResourceNotFound.data);
     });
