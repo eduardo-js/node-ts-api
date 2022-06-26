@@ -1,7 +1,12 @@
 import {z} from 'zod';
 
-export const getBookByIdParam = z.object({
-  params: z.object({
-    id: z.string().refine((id) => parseInt(id) > 0, '"id should be > 0"'),
-  }),
+const zCreateBookParams = z.object({
+  title: z.string().trim(),
+  description: z.string().trim(),
+  author: z.string().trim(),
 });
+export const createBookParams = z.object({
+  body: zCreateBookParams,
+});
+
+export type CreateBookParams = z.infer<typeof zCreateBookParams>;

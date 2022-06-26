@@ -5,6 +5,6 @@ export default {
   collectCoverage: false,
   testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
   testEnvironment: 'node',
-  setupFiles: ['dotenv/config', 'reflect-metadata'],
+  setupFiles: ['dotenv/config'],
   globalSetup: './test/setup.ts',
 };

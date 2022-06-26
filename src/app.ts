@@ -1,20 +1,11 @@
-import express, {Application} from 'express';
-import {inject, injectable} from 'tsyringe';
+import express from 'express';
 import {ErrorHandler} from './middleware/ErrorHandler';
-import Routes from './routes/index';
 import 'express-async-errors';
-@injectable()
-export default class App {
-  constructor(
-    @inject('app') public app: Application,
-    @inject('Routes') private routes: Routes,
-  ) {
-    this.init();
-  }
+import Routes from './routes';
 
-  init = () => {
-    this.app.use(express.json());
-    this.app.use('/api', this.routes.router);
-    this.app.use(ErrorHandler);
-  };
-}
+const app = express();
+app.use(express.json());
+app.use(Routes);
+app.use(ErrorHandler);
+
+export default app;

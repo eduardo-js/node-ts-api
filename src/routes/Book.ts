@@ -1,23 +1,26 @@
-import {Router} from 'express';
-import {inject, injectable} from 'tsyringe';
+import {Request, Response, Router} from 'express';
 import BookController from '../controller/Book';
 import {Validate} from '../middleware/Validator';
-import {getBookByIdParam} from '../shared/validators/Book';
+import BookRepository from '../repository/Book';
+import prisma from '../repository/Prisma';
+import BookService from '../service/Book';
+import {createBookParams} from '../shared/validators/Book';
 
-@injectable()
-export default class BookRoutes {
-  constructor(
-    @inject('router') public router: Router,
-    @inject('BookController') private bookController: BookController,
-  ) {
-    this.init();
-  }
+const BookRouter = Router();
+BookRouter.get('/v1/:id', async function(req: Request, res: Response) {
+  const bookRepository = new BookRepository(prisma);
+  const bookService = new BookService(bookRepository);
+  return new BookController(bookService).getBookById(req, res);
+});
 
-  init() {
-    this.router.get(
-        '/v1/:id',
-        Validate(getBookByIdParam),
-        this.bookController.getBookById,
-    );
-  }
-}
+BookRouter.post(
+    '/v1',
+    Validate(createBookParams),
+    async function(req: Request, res: Response) {
+      const bookRepository = new BookRepository(prisma);
+      const bookService = new BookService(bookRepository);
+      return new BookController(bookService).createBook(req, res);
+    },
+);
+
+export default BookRouter;
