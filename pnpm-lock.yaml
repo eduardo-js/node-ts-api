@@ -23,11 +23,9 @@ specifiers:
   lint-staged: 13.0.2
   prettier: 2.7.0
   prisma: 3.15.2
-  reflect-metadata: 0.1.13
   supertest: 6.2.3
   ts-jest: 27.1.5
   ts-node-dev: 2.0.0
-  tsyringe: 4.7.0
   typescript: 4.7.3
   zod: ^3.17.3
 
@@ -36,8 +34,6 @@ dependencies:
   dotenv: 16.0.1
   express: 4.18.1
   express-async-errors: 3.1.1_express@4.18.1
-  reflect-metadata: 0.1.13
-  tsyringe: 4.7.0
   zod: 3.17.3
 
 devDependencies:
@@ -4417,10 +4413,6 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
-  /reflect-metadata/0.1.13:
-    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
-    dev: false
-
   /regexp.prototype.flags/1.4.3:
     resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==}
     engines: {node: '>= 0.4'}
@@ -5083,6 +5075,7 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: true
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
@@ -5097,13 +5090,6 @@ packages:
       tslib: 1.14.1
       typescript: 4.7.3
     dev: true
-
-  /tsyringe/4.7.0:
-    resolution: {integrity: sha512-ncFDM1jTLsok4ejMvSW5jN1VGPQD48y2tfAR0pdptWRKYX4bkbqPt92k7KJ5RFJ1KV36JEs/+TMh7I6OUgj74g==}
-    engines: {node: '>= 6.0.0'}
-    dependencies:
-      tslib: 1.14.1
-    dev: false
 
   /type-check/0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
