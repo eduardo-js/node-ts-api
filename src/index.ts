@@ -6,6 +6,7 @@ import prisma from './repository/Prisma';
 const main = async () => {
   try {
     await prisma.$connect();
+    await prisma.$disconnect();
     app.listen(config.app.port);
     console.log(`Server is running on port ${config.app.port || 3000}`);
   } catch (error) {
