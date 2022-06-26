@@ -12,13 +12,13 @@ describe('BookService', () => {
   describe('getBookById', () => {
     it('should return 200 when book exists', async () => {
       bookRepository.getBookById.mockResolvedValueOnce(bookMock);
-      const sut = await new BookService(bookRepository).getBookById(1);
+      const sut = await new BookService(bookRepository).getBookById('1');
       expect(sut.status).toBe(200);
       expect(sut.data).toStrictEqual({book: bookMock});
     });
     it('should return 404 when book !exists', async () => {
       bookRepository.getBookById.mockResolvedValueOnce(null);
-      const sut = await new BookService(bookRepository).getBookById(1);
+      const sut = await new BookService(bookRepository).getBookById('1');
       expect(sut.status).toBe(ResourceNotFound.status);
       expect(sut.data).toStrictEqual(ResourceNotFound.data);
     });

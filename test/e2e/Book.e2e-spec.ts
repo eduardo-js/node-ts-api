@@ -1,12 +1,10 @@
 import request from 'supertest';
 import {ResourceNotFound, ValidationError} from '../../src/error/Http';
 import {bookMock} from '../mock/Book.mock';
-import container from '../../src/shared/container';
-import App from '../../src/app';
 import {PrismaClient} from '@prisma/client';
+import app from '../../src/app';
 
 describe('Book', () => {
-  const app = container.resolve(App).app;
   const prisma = new PrismaClient();
   afterEach(async () => {
     await prisma.book.deleteMany({});
