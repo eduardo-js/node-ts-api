@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "production": "node dist/src",
+    "build": "rm -r dist && tsc",
     "dev": "ts-node-dev --respawn --exit-child src",
     "test": "jest --silent",
     "prepare": "husky install",
