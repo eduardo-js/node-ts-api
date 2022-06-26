@@ -8,4 +8,4 @@ export const UnhandledException = ApiResponse(503, {
   reason: 'Unhandled exception',
 });
 
-export const ValidationError = ApiResponse(404);
+export const ValidationError = ApiResponse(400);
