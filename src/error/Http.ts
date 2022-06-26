@@ -1,13 +1,11 @@
-export const ResourceNotFound = {
-  status: 404,
-  data: {reason: 'Resource not found'},
-};
+import ApiResponse from '../shared/responses';
 
-export const ValidationError = {
-  status: 400,
-};
+export const ResourceNotFound = ApiResponse(404, {
+  reason: 'Resource not found',
+});
 
-export const UnhandledException = {
-  status: 503,
-  data: {reason: 'Unhandled exception'},
-};
+export const UnhandledException = ApiResponse(503, {
+  reason: 'Unhandled exception',
+});
+
+export const ValidationError = ApiResponse(404);

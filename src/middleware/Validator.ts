@@ -13,6 +13,6 @@ export const Validate =
         });
         return next();
       } catch (error) {
-        return res.status(ValidationError.status).json(error);
+        return res.status(ValidationError.status).send(error);
       }
     };
